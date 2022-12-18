@@ -49,7 +49,6 @@ const updateUI = () => {
       moviesList.appendChild(li);
     });
   } else {
-    console.log("?");
     noMoviesText.classList.remove("unvisible");
   }
 };
