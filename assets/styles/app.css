@@ -200,10 +200,6 @@ input:focus {
   padding: 1rem;
 }
 
-#entry-text.unvisible {
-  display: none;
-}
-
 .movie-element__remove {
   display: block;
   margin: 10px 0px 0px 0px;
