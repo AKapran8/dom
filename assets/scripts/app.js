@@ -17,13 +17,18 @@ const rating = document.querySelector("#rating");
 
 const movies = [];
 
+const cancelBtnHandler = () => {
+  toggleBackdropHandler();
+}
+
 const toggleBackdropHandler = () => {
-  backdrop.classList.toggle("visible");
+  backdrop.classList.remove("visible");
+  addModal.classList.remove("visible");
 };
 
 const AddModalDialogHandler = () => {
   addModal.classList.toggle("visible");
-  toggleBackdropHandler();
+  backdrop.classList.toggle("visible");
   resetForm();
 };
 
@@ -77,8 +82,10 @@ const formValidator = () => {
 
   if (
     !imageUrlValue ||
-    !imageUrlValue.startsWith("https://") ||
-    !imageUrlValue.startsWith("http://")
+    !(
+      imageUrlValue.startsWith("https://") ||
+      imageUrlValue.startsWith("http://")
+    )
   ) {
     return alert("Url can't be empty");
   }
@@ -107,5 +114,5 @@ const formValidator = () => {
 
 addNewMovieDialog.addEventListener("click", AddModalDialogHandler);
 backdrop.addEventListener("click", toggleBackdropHandler);
-addModalCancelBtn.addEventListener("click", AddModalDialogHandler);
+addModalCancelBtn.addEventListener("click", cancelBtnHandler);
 addModalSubmitBtn.addEventListener("click", submitMovieHandler);
